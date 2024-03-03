@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css'
 
 class TriangleCheck extends React.Component {
   constructor(props) {
@@ -62,30 +63,46 @@ class TriangleCheck extends React.Component {
     const { isInside, submitted } = this.state;
 
     return (
-      <div>
-        <h2>A , B , C Uchburchak ichida X kordinata shu uchburchakni ichida yoki tashqarisidaligini aniqlaydi</h2>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label>A nuqta (x, y):</label>
-            <input type="text" name="a" onChange={e => this.handleChange(e, 'a')} />
-          </div>
-          <div>
-            <label>B nuqta (x, y):</label>
-            <input type="text" name="b" onChange={e => this.handleChange(e, 'b')} />
-          </div>
-          <div>
-            <label>C nuqta (x, y):</label>
-            <input type="text" name="c" onChange={e => this.handleChange(e, 'c')} />
-          </div>
-          <div>
-            <label>X nuqta (x, y):</label>
-            <input type="text" name="x" onChange={e => this.handleChange(e, 'x')} />
-          </div>
-          <div>
-            <button type="submit">Submit</button>
-          </div>
-          {submitted && <p>{isInside ? 'X nuqta ichida' : 'X nuqta tashqarida'}.</p>}
-        </form>
+      <div className='corner'>
+
+        <div className='corner-title'>
+          <div className='corner-title-item'><span>A </span> , <span> B</span> , <span>C</span> Uchburchak ichida <span>X</span> kordinata shu uchburchakni ichida yoki tashqarisidaligini aniqlaydi</div>
+        </div>
+
+        <div className='section'>
+
+            <form onSubmit={this.handleSubmit}>
+
+                  <div className='form-inputs'>
+                    <label>A nuqta (x, y):</label>
+                    <input type="text" name="a" onChange={e => this.handleChange(e, 'a')} />
+                  </div>
+
+                  <div className='form-inputs'>
+                    <label>B nuqta (x, y):</label>
+                    <input type="text" name="b" onChange={e => this.handleChange(e, 'b')} />
+                  </div>
+
+                  <div className='form-inputs'>
+                    <label>C nuqta (x, y):</label>
+                    <input type="text" name="c" onChange={e => this.handleChange(e, 'c')} />
+                  </div>
+
+                  <div className='form-inputs'>
+                    <label>X nuqta (x, y):</label>
+                    <input type="text" name="x" onChange={e => this.handleChange(e, 'x')} />
+                  </div>
+
+                  <div className='form-btn'>
+                    <button type="submit">Submit</button>
+                  </div>
+
+                  {submitted && <p>{isInside ? 'X kordinata uchburchakning ichida' : 'X kordinata uchburchakning ichida emas !'}.</p>}
+
+            </form>
+
+        </div>
+
       </div>
     );
   }
